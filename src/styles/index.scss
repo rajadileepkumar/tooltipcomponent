@@ -1,0 +1,157 @@
+@import './layout/module.scss';
+@import './config/mixin.scss';
+@import './layout/fonts.scss';
+@import './layout/color.scss';
+@import './layout/text.scss';
+@import './layout/button.scss';
+@import './layout/accessibility.scss';
+@import './global.scss';
+
+body{
+    @include background-gradient(#ff00004f, #c61752, 'horizontal');
+    height: 100vh;
+    font-family: 'Montserrat-Medium';
+}
+#root{
+    @include center(both)
+}
+h1{
+    @include font-size(14px);
+    @include padding(10px,null,20px,null)
+}
+
+.tooltip_data{
+    position: relative;
+    transition: 2s;
+    .tooltip_data_avatar{
+        width: 40px;
+        height: 40x;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .tooltip_data_triangle{
+        width: 0px;
+        height: 0px;
+        border-bottom: solid 12px #fff;
+        border-left: solid 10px transparent;
+        border-right: solid 10px transparent;
+        margin-left: 12px;
+        display: none;
+        
+    }
+    .tooltip_container{
+        background: #fff;
+        border-radius: 10px;
+        padding:25px;
+        display: none;
+        .tooltip_content{
+            .tooltip_content_profile{
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .tooltip_content_profile_avatar{
+                flex: 1;
+                flex-grow: 0;
+                img{
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            .tooltip_content_profile_description{
+                flex: 1;
+                margin-left: 4%;
+                h6{
+                    margin: 0;
+                }
+                p{
+                    margin: 0;
+                    font-size: 12px;
+                    color: #6e6d7a;
+                }
+            }
+            
+            .tooltip_content_img_container{
+                display: flex;
+                .tooltip_content_img{
+                    flex: 1;
+                    img{
+                        width: 109px;
+                        height: 80px;
+                        border-radius:20px;
+                        padding: 0 7px;
+                        
+                    }
+                    &:first-child{
+                        img{
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &:hover{
+        .tooltip_data_triangle{
+            display: block;
+        }
+        .tooltip_container{
+            display: block;
+        }
+    }
+    &.tooltip__left{
+        .tooltip_data_triangle{
+            position: absolute;
+            transform: rotate(88deg);
+            left: -35px;
+            top: 15px;
+        }
+        .tooltip_container{
+            position: absolute;
+            left: -430px;
+            top: 0;
+        }
+    }
+    &.tooltip__right{
+        .tooltip_data_triangle{
+            position: absolute;
+            right: -34px;
+            top: 20px;
+            transform: rotate(-94deg);
+        }
+        .tooltip_container{
+            position: absolute;
+            right: -440px;
+            top: 0;
+        }
+    }
+    &.tooltip__top{
+        .tooltip_data_triangle{
+            position: absolute;
+            bottom: 43px;
+            transform: rotate(-177deg);
+        }
+        .tooltip_container{
+            position: absolute;
+            z-index: 1090;
+            z-index: 1090;
+            bottom: 54px;
+        }
+    }
+    &.tooltip__bottom{
+        .tooltip_data_triangle{
+            position: absolute;
+            z-index: 1090;
+            transform: rotate(-1deg);
+            top: 45px;
+        }
+        .tooltip_container{
+            position: absolute;
+            left: -25px;
+            z-index: 1090;
+            top: 55px;
+        }
+    }
+}
+
